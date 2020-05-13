@@ -425,6 +425,8 @@ input#menu:checked ~ #menu-content{
     padding: 3.2rem;
     justify-content: space-around;
     transition: all .4s; 
+    display: flex;
+    align-items: center;
 }
 
 #headers header div{
@@ -447,10 +449,12 @@ input#menu:checked ~ #menu-content{
         margin-top: 6rem;
         flex-direction: column;
         display: block; 
+        align-items: center;
     }
 
     #headers header *{
         text-align: center;
+        align-items: center;
         font-size: 1.5rem; 
     }
 
@@ -568,6 +572,9 @@ input#menu:checked ~ #menu-content{
 .button{
     padding: 30px 0px;
     display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button button{
