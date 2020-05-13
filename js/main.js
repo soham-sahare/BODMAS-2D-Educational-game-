@@ -40,6 +40,7 @@ function next(){
     document.getElementById('modal').style.display = 'block';
 }
 
+
 function level(level){
     
     if(level == 'level1'){
@@ -49,22 +50,20 @@ function level(level){
 
         var nums = []
         var operations = ['+', '-', '/', '*']
-        var as
 
         for(i = 0; i < 6; i++){
 
-            a = Math.floor(Math.random() * 101);
+            a = Math.floor(Math.random() * 11);
             op = Math.floor(Math.random() * 4);
             
             nums.push(a, operations[op]);
         }
         nums.pop()
         str = nums.join(' ')
-        ans = eval(str)
+        ans = eval(str).toFixed(2);
         console.log(ans);
-        
-        
         document.getElementById('give').innerHTML = str;
+        
     }
     else if(level == 'level2'){
         document.getElementById('headers').style.display = 'none'
@@ -78,6 +77,15 @@ function level(level){
     }
 
     document.getElementById('modal').style.display = 'none'
+}
+
+
+function valid(){
+    var a = document.getElementById("get").value;
+    if (a == ans){
+        alert("Correct")
+    }
+    level(level1);
 }
 
 function saveData(key, value) {
@@ -117,3 +125,4 @@ window.onload = function() {
         console.log("Created Stores");
     }
 }
+
