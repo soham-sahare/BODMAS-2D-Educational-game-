@@ -508,10 +508,10 @@ input#menu:checked ~ #menu-content{
 }
 @media (max-width: 1100px){
   
-    #modal[open] {
+    #modal[open]{
         animation: fadeIn ease .25s; 
     } 
-  }
+}
   
   @media (max-width: 1400px){
     
@@ -555,7 +555,7 @@ input#menu:checked ~ #menu-content{
     #modal button{
         font-size: 3.5rem; 
     } 
-  }
+}
   
   @media (max-width: 500px){
   
@@ -567,7 +567,7 @@ input#menu:checked ~ #menu-content{
     #modal button{
         font-size: 3rem; 
     } 
-  }
+}
 
 .button{
     padding: 30px 0px;
@@ -657,8 +657,10 @@ input#menu:checked ~ #menu-content{
     align-items: center;
 }
 
-#headers1 header *{
+#headers1 header {
     font-size: 2.25rem;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     color: rgba(var(--text-color), 1); 
 }
@@ -671,12 +673,6 @@ input#menu:checked ~ #menu-content{
     padding: 3.2rem;
     justify-content: space-around;
     transition: all .4s; 
-}
-
-#headers1 header div{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
 }
 
 #headers1 header:last-of-type{
@@ -695,56 +691,127 @@ input#menu:checked ~ #menu-content{
     }
 
     #headers1 header *{
-        text-align: center;
-        font-size: 1.5rem; 
+        text-align: center; 
+        font-size: 30px;
     }
 
     #headers1 header{
         margin: 0 4rem !important;
-        padding: 8rem 3.2rem; 
     }
 
     #headers1 header:last-of-type{
         margin-top: 5rem !important; 
     } 
+
+    #choices{
+        flex-direction: column;
+    }
 }
 
-#form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
+#start{
+    font-weight: bolder;
+    word-break: break-all;
+    text-align: center;
+    color : lightgrey;
+    transition: 0.5s ease;
 }
 
-#form input[type=text]:enabled{
-    background-color: rgba(var(--bg-color), 1);
-    color: rgba(var(--text-color), 1);
-    border: 2px solid rgba(var(--gradient-1), 1);
-    width: 30%;
+#start:hover{
+    transform: scale(1.2);
+}
+
+#question{
     text-align: center;
 }
 
-#form input:focus{
-    background-color: rgba(var(--bg-color), 1);
-    color: rgba(var(--text-color), 1);
-    border: 2px solid rgba(var(--gradient-1), 1);
+#question p{
+    margin : 0;
+    text-align: center;
+    font-size: 40px;
+    padding : 10px;
 }
 
-#form input[type=submit]{
-    background-color: rgba(var(--bg-color), 1);
-    color: rgba(var(--text-color), 1);
-    border: 2px solid rgba(var(--gradient-1), 1);
-    padding: 10px 20px;
-    font-size: 30px;
-    transition: all 0.5s;
+#choices{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
-#form input[type=submit]:enabled:hover{
-    transform: scale(1.1);
+.choice{
+    text-align: center;
+    border : 1px solid rgba(var(--gradient-1), 1);
+    border-radius: 5px;
+    padding : 5px 10px;
+    transition: 0.5s ease;
+    margin: 20px;
+    font-size: 20px;
 }
 
-#form input[type = text]:disabled{
+.choice:hover{
+    border : 2px solid rgba(var(--gradient-2), 1);
+    transform: scale(1.2);
+}
+
+#timer{
+    align-items: center;
+    height : 100px;
+    bottom : 0px;
+    text-align: center;
+    align-items: center;
+}
+
+#counter{
+    font-size: 50px;
+    align-items: center;
+}
+
+#btimeGauge{
+    height : 10px;
+    width: 100%;
+    align-items: center;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+#timeGauge{
+    height : 10px;
+    border-radius: 10px;
+    background-color: mediumseagreen;
+    margin-top : -10px;
+}
+
+#progress{
+    display: flex;
+    padding:5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prog{
+    width : 25px;
+    height : 25px;
+    border: 10px solid rgba(var(--sidebar-gradient-1), 1);
+    display: inline-block;
+    border-radius: 50%;
+    margin-left : 5px;
+}
+
+#scoreContainer{
     background-color: rgba(var(--bg-color), 1);
+    position: relative;
+    display: none;
+}
+
+#scoreContainer p{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
     color: rgba(var(--text-color), 1);
-    border: none;
+}
+
+#nextlevel{
+    display: none;
+    font-size: 600px;
 }
