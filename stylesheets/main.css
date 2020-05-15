@@ -1,3 +1,8 @@
+*{
+    list-style: none;
+    text-decoration: none;
+}
+
 :root{
     --bg-color: 255, 255, 255;
     --text-color: 12, 12, 12;
@@ -313,13 +318,14 @@ input#menu:checked ~ #menu-content{
 
 #menu-content #theme{
     transition: all 0.2s; 
+    display: flex;
+    flex-direction: column;
 }
 
 #menu-content #theme h5{
-    margin-top: 7rem;
     font-size: var(--menu-font-size);
     text-transform: uppercase;
-    line-height: 10%; 
+    line-height: 5%; 
 }
 
 #menu-content #theme h5 span{
@@ -375,6 +381,12 @@ input#menu:checked ~ #menu-content{
 
     #menu-content #theme h5{
         text-align: center; 
+    }
+
+    .socials ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     input#menu:checked ~ #menu-controller{
@@ -886,4 +898,27 @@ input#menu:checked ~ #menu-content{
         color: grey;
         font-size: 21px;
     }   
+}
+
+.socials{
+    padding: 5px;
+    display: block;
+}
+
+.socials ul{
+    display: flex;
+}
+
+.socials ul li{
+    padding: 0 10px 0 10px;
+}
+
+.socials ul li a{
+    color: rgba(var(--text-color), 1);
+    font-size: 30px;
+    transition: ease 0.5s;
+}
+
+.socials ul li a:hover{
+    color: rgba(var(--gradient-2), 1); 
 }
