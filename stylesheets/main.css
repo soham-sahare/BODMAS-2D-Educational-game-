@@ -400,7 +400,7 @@ input#menu:checked ~ #menu-content{
 
 #main #headers h2{
     color: grey;
-    font-size: 32px;
+    font-size: 30px;
 }
 
 #headers{
@@ -450,6 +450,11 @@ input#menu:checked ~ #menu-content{
         flex-direction: column;
         display: block; 
         align-items: center;
+    }
+
+    #btns{
+        display: flex;
+        flex-direction: column;
     }
 
     #headers header *{
@@ -873,4 +878,12 @@ input#menu:checked ~ #menu-content{
 
 #replay:hover{
     transform: scale(1.2);
+}
+
+@media (max-width: 500px){
+
+    #main #headers h2{
+        color: grey;
+        font-size: 21px;
+    }   
 }

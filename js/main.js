@@ -296,7 +296,7 @@ function startQuiz(){
 }
 
 function renderProgress(){
-    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+    for(let qIndex = 0; qIndex <= 4; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
@@ -322,7 +322,6 @@ function renderCounter(){
 
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
-    
         score++;
         answerIsCorrect();
     }else{
@@ -386,11 +385,12 @@ function scoreRender(){
     document.getElementById('nextlevel').style.display = 'block'
 }
 
-function reset(n){
-    
-    start.style.display = 'block'
-    level(n);
-    
+function reset(){
+    document.getElementById('start').style.display = 'block'
+    runningQuestion = 0;
+    count = 0;
+    score = 0;
+    lastQuestion = 4;
 }
 
 function cont(){
@@ -399,18 +399,14 @@ function cont(){
         
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
     else if(que == 2){
         que = 3
 
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
 }
 
@@ -418,23 +414,17 @@ function replay(){
     if(que == 1){
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
     else if(que == 2){
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
     else if(que == 3){
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
 }
 
@@ -444,17 +434,13 @@ function back(){
 
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
     else if(que == 3){
         que = 2
 
         document.getElementById('scoreContainer').style.display = 'none'
         document.getElementById('btns').style.display = 'none'
-        localStorage.clear();
-        reset(que);
-        startQuiz();
+        reset();
     }
 }
