@@ -349,15 +349,112 @@ function answerIsWrong(){
 function scoreRender(){
     scoreDiv.style.display = "block";
     
-    const scorePerCent = Math.round(100 * score/questions.length);
+    var scorePerCent = Math.round(100 * score/questions.length);
     
     if(scorePerCent >= 60){
         scoreDiv.innerHTML = 'Congratulations you passed this level'
+        if(que == 3){
+            document.getElementById('back').style.display = 'block'          
+            document.getElementById('replay').style.display = 'block'
+        }
+        else if(que == 1){
+            document.getElementById('continue').style.display = 'block'            
+            document.getElementById('replay').style.display = 'block'
+        }
+        else{
+            document.getElementById('continue').style.display = 'block'            
+            document.getElementById('replay').style.display = 'block'
+            document.getElementById('back').style.display = 'block'
+        }
     }
     else{
-        scoreDiv.innerHTML = 'Try again'
+        scoreDiv.innerHTML = 'Sorry level not cleared <br> Keep trying...Your brain is growing!'
+        if(que == 1){
+            document.getElementById('replay').style.display = 'block'
+        }
+        else if(que == 2){
+            document.getElementById('back').style.display = 'block'
+            document.getElementById('replay').style.display = 'block'
+        }
+        else{
+            document.getElementById('back').style.display = 'block'
+            document.getElementById('replay').style.display = 'block'
+        }
     }
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
     quiz.style.display = 'none'
     document.getElementById('nextlevel').style.display = 'block'
+}
+
+function reset(n){
+    
+    start.style.display = 'block'
+    level(n);
+    
+}
+
+function cont(){
+    if(que == 1){
+        que = 2
+        
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+    else if(que == 2){
+        que = 3
+
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+}
+
+function replay(){
+    if(que == 1){
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+    else if(que == 2){
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+    else if(que == 3){
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+}
+
+function back(){
+    if(que == 2){
+        que = 1; 
+
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
+    else if(que == 3){
+        que = 2
+
+        document.getElementById('scoreContainer').style.display = 'none'
+        document.getElementById('btns').style.display = 'none'
+        localStorage.clear();
+        reset(que);
+        startQuiz();
+    }
 }

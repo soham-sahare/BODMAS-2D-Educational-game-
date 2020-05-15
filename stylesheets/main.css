@@ -717,6 +717,7 @@ input#menu:checked ~ #menu-content{
     text-align: center;
     color : rgba(var(--text-color), 1);
     transition: 0.5s ease;
+    display: block;
 }
 
 #start:hover{
@@ -817,4 +818,59 @@ input#menu:checked ~ #menu-content{
 #nextlevel{
     display: none;
     font-size: 600px;
+}
+
+#btns{
+    display: flex;
+}
+
+#continue{
+    font-size: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 3px 6px rgba(var(--text-color), 0.16), 
+                0 3px 6px rgba(var(--text-color), 0.23);
+    background-color: white;
+    border: 2px solid rgba(var(--gradient-1));
+    font-weight: 600;
+    transition: 0.5s ease;
+    display: none;
+    margin: 30px;
+}
+
+#continue:hover{
+    transform: scale(1.2);
+}
+
+#back{
+    font-size: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 3px 6px rgba(var(--text-color), 0.16), 
+                0 3px 6px rgba(var(--text-color), 0.23);
+    background-color: white;
+    border: 2px solid rgba(var(--gradient-1));
+    font-weight: 600;
+    transition: 0.5s ease;
+    display: none;
+    margin: 30px;
+}
+
+#back:hover{
+    transform: scale(1.2);
+}
+
+#replay{
+    font-size: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 3px 6px rgba(var(--text-color), 0.16), 
+                0 3px 6px rgba(var(--text-color), 0.23);
+    background-color: white;
+    border: 2px solid rgba(var(--gradient-1));
+    font-weight: 600;
+    transition: 0.5s ease;
+    display: none;
+    margin: 30px;
+}
+
+#replay:hover{
+    transform: scale(1.2);
 }

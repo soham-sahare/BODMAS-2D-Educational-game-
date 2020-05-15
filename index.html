@@ -12,11 +12,15 @@
 <body>
     
     <div id="menu-section">
+
         <input type="checkbox" id="menu">
+
         <aside id="menu-controller">
             <label for="menu" class="icon"></label>
         </aside>
+
         <div id="menu-dimmed-bg"></div>
+
         <div id="menu-content">
 
             <header>
@@ -25,10 +29,12 @@
             </header>
             
             <section id="theme">
+
                 <h5 class="bold">Theme:
                     <span id="light" class="current-theme" onclick="updateTheme('light')">Light</span>
                     <span id="dark" onclick="updateTheme('dark')">Dark</span>
                 </h5>
+
             </section>
 
         </div>
@@ -65,7 +71,9 @@
             <header id="head1">
                 
                 <div id="start">Start Quiz!</div>
+
                 <div id="quiz" style="display: none">
+
                     <div id="question"></div>
 
                     <div id="choices">
@@ -84,8 +92,14 @@
                     <div id="progress"></div>
 
                 </div>
-                
-                <div id="scoreContainer" style="display: block"><button id="nextlevel">Next Level</button> </div>
+            
+                <div id="scoreContainer" style="display: block"></div>
+
+                <div id="btns">
+                    <button id="back" onclick="back();">Previous Level</button>
+                    <button id="replay" onclick="replay();">Replay</button>
+                    <button id="continue" onclick="cont();">Next Level</button>
+                </div>
 
             </header>
             
@@ -93,6 +107,7 @@
     </section>
     
     <dialog id="modal">
+
         <h1>RULES : </h1>
         <h2>Questions will appear on screen one after the other, each level has 5 questions, 
             if you are on level 3 you can have as many questions as you can till you lost. <br>
@@ -101,15 +116,19 @@
             You will be promoted to the next level once the current level is cleared. <br> 
             You have 10 seconds to answer each question
         </h2>
+
         <h2 class="bold">Choose your difficulty level : </h2>
+
         <div class="buttonlevel">
             <button class="black" onclick="level('level1');">Level 1</button>
             <button class="black" onclick="level('level2');">Level 2</button>
             <button class="black" onclick="level('level3');">Level 3</button>
         </div>
+
     </dialog>
     
     <script src="js/main.js" type="text/javascript"></script>
+
 </body>
 
 </html>
