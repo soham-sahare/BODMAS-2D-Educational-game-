@@ -39,24 +39,29 @@ function updateTheme(theme) {
 function next(){
     document.getElementById('modal').style.display = 'block';
 }
-
+var que;
 function level(level){
     
     if(level == 'level1'){
-
         document.getElementById('headers').style.display = 'none'
         document.getElementById('main').style.display = 'none'
         document.getElementById('main1').style.display = 'block'
+
+        que = 1;
     }
     else if(level == 'level2'){
         document.getElementById('headers').style.display = 'none'
         document.getElementById('main').style.display = 'none'
         document.getElementById('main1').style.display = 'block'
+
+        que = 2;
     }
     else if(level == 'level3'){
         document.getElementById('headers').style.display = 'none'
         document.getElementById('main').style.display = 'none'
         document.getElementById('main1').style.display = 'block'
+
+        que = 3;
     }
 
     document.getElementById('modal').style.display = 'none'
@@ -112,59 +117,164 @@ const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
-// create our questions
-let questions = [
+var questions
+questions1 = [
     
     {
-        question : "What does  stand for?",
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        choiceD : "Wrong",
-        correct : "A"
-    },{
-        question : "What does CSS stand for?",
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
-        choiceD : "Wrong",
+        question : "21 - 12 / 3 * 2",
+        choiceA : "15",
+        choiceB : "13",
+        choiceC : "16",
+        choiceD : "12",
+        
         correct : "B"
     },{
-        question : "What does JS stand for?",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
-        choiceD : "Wrong",
+        question : "16 + 8 / 4 - 2 * 3",
+        choiceA : "12",
+        choiceB : "11",
+        choiceC : "16",
+        choiceD : "15",
+
+        correct : "A"
+    },{
+        question : "30 * 2 / 3 - 10",
+        choiceA : "15",
+        choiceB : "20",
+        choiceC : "10",
+        choiceD : "23",
+
         correct : "C"
     },{
-        question : "W3r?",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
-        choiceD : "Wrong",
-        correct : "C"
+        question : "15 / 3 * 2 - 10",
+        choiceA : "8",
+        choiceB : "5",
+        choiceC : "1",
+        choiceD : "0",
+
+        correct : "D"
     },{
-        question : "4",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
-        choiceD : "Wrong",
+        question : "30 - 10 * 8 + 60",
+        choiceA : "8",
+        choiceB : "9",
+        choiceC : "10",
+        choiceD : "11",
+
         correct : "C"
     }
 ];
-// create some variables
 
-const lastQuestion = questions.length - 1;
+
+questions2 = [
+    
+    {
+        question : "25 + (2 * 3) - 5",
+        choiceA : "10",
+        choiceB : "26",
+        choiceC : "15",
+        choiceD : "20",
+        
+        correct : "B"
+    },{
+        question : "13 - (12 - 6 / 3)",
+        choiceA : "3",
+        choiceB : "1",
+        choiceC : "6",
+        choiceD : "5",
+
+        correct : "A"
+    },{
+        question : "3 * 5 + (10 / 5 - 2)",
+        choiceA : "11",
+        choiceB : "20",
+        choiceC : "15",
+        choiceD : "23",
+
+        correct : "C"
+    },{
+        question : "(10 - 8) * 2 + 10",
+        choiceA : "18",
+        choiceB : "15",
+        choiceC : "16",
+        choiceD : "14",
+
+        correct : "D"
+    },{
+        question : "10 + (2 * 5) - 10 / 2",
+        choiceA : "28",
+        choiceB : "19",
+        choiceC : "15",
+        choiceD : "11",
+
+        correct : "C"
+    }
+];
+
+questions3 = [
+    
+    {
+        question : "19 - [4 + {16 - (12 - 2)}]",
+        choiceA : "15",
+        choiceB : "9",
+        choiceC : "12",
+        choiceD : "11",
+        
+        correct : "B"
+    },{
+        question : "36 - [18 - {14 - (15 - 4 / 2 * 2)}]",
+        choiceA : "21",
+        choiceB : "18",
+        choiceC : "12",
+        choiceD : "11",
+
+        correct : "A"
+    },{
+        question : "15 + 10 - [{10 - 1} / (2 + 1)]",
+        choiceA : "10",
+        choiceB : "20",
+        choiceC : "22",
+        choiceD : "23",
+
+        correct : "C"
+    },{
+        question : "30 + [{(20 + 1) * 5 - (2 + 1) / 3}]",
+        choiceA : "80",
+        choiceB : "115",
+        choiceC : "120",
+        choiceD : "134",
+
+        correct : "D"
+    },{
+        question : "19 - [4 + {16 - (12 - 8)}]",
+        choiceA : "8",
+        choiceB : "9",
+        choiceC : "3",
+        choiceD : "1",
+
+        correct : "C"
+    }
+];
+
+const lastQuestion = 4;
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 10; // 10s
-const gaugeWidth = 150; // 150px
+const questionTime = 10; 
+const gaugeWidth = 150; 
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
 
-// render a question
-function renderQuestion(){
+function renderQuestion(que){
+
+    if(que == 1){
+        questions = questions1;
+    }
+    else if(que == 2){
+        questions = questions2;
+    }
+    else if(que == 3){
+        questions = questions3;
+    }
+    
     let q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
@@ -176,24 +286,20 @@ function renderQuestion(){
 
 start.addEventListener("click",startQuiz);
 
-// start quiz
 function startQuiz(){
     start.style.display = "none";
-    renderQuestion();
+    renderQuestion(que);
     quiz.style.display = "block";
     renderProgress();
     renderCounter();
-    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+    TIMER = setInterval(renderCounter,1000); 
 }
 
-// render progress
 function renderProgress(){
     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
         progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
     }
 }
-
-// counter render
 
 function renderCounter(){
     if(count <= questionTime){
@@ -202,30 +308,24 @@ function renderCounter(){
         count++
     }else{
         count = 0;
-        // change progress color to red
+
         answerIsWrong();
         if(runningQuestion < lastQuestion){
             runningQuestion++;
             renderQuestion();
         }else{
-            // end the quiz and show the score
             clearInterval(TIMER);
             scoreRender();
         }
     }
 }
 
-// checkAnwer
-
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
-        // answer is correct
+    
         score++;
-        // change progress color to green
         answerIsCorrect();
     }else{
-        // answer is wrong
-        // change progress color to red
         answerIsWrong();
     }
     count = 0;
@@ -233,30 +333,24 @@ function checkAnswer(answer){
         runningQuestion++;
         renderQuestion();
     }else{
-        // end the quiz and show the score
         clearInterval(TIMER);
         scoreRender();
     }
 }
 
-// answer is correct
 function answerIsCorrect(){
     document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// answer is Wrong
 function answerIsWrong(){
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
-// score render
 function scoreRender(){
     scoreDiv.style.display = "block";
     
-    // calculate the amount of question percent answered by the user
     const scorePerCent = Math.round(100 * score/questions.length);
     
-    // choose the image based on the scorePerCent
     if(scorePerCent >= 60){
         scoreDiv.innerHTML = 'Congratulations you passed this level'
     }
@@ -267,69 +361,3 @@ function scoreRender(){
     quiz.style.display = 'none'
     document.getElementById('nextlevel').style.display = 'block'
 }
-
-/*const questions = [
-
-    {
-        question: '21 - 12 / 3 * 2',
-        answers: [
-        { text: '13', correct: true },
-        { text: '12', correct: false },
-        { text: '10', correct: false },
-        { text: '15', correct: false },
-        ]
-    },
-    {
-        question: '16 + 8 / 4 - 2 * 3',
-        answers: [
-        { text: '13', correct: false },
-        { text: '12', correct: true },
-        { text: '16', correct: false },
-        { text: '24', correct: false },
-        ]
-    }
-]
-
-const questions2 = [
-
-    {
-        question: '25 + (2 * 3) - 5',
-        answers: [
-        { text: '33', correct: false },
-        { text: '18', correct: false },
-        { text: '15', correct: false },
-        { text: '26', correct: true },
-        ]
-    },
-    {
-        question: '13 - (12 - 6 / 3)',
-        answers: [
-        { text: '3', correct: true },
-        { text: '12', correct: false },
-        { text: '16', correct: false },
-        { text: '24', correct: false },
-        ]
-    }
-]
-
-const questions3 = [
-
-    {
-        question: '19 - [4 + {16 - (12 - 2)}]',
-        answers: [
-        { text: '8', correct: false },
-        { text: '16', correct: false },
-        { text: '9', correct: true },
-        { text: '22', correct: false },
-        ]
-    },
-    {
-        question: '36 - [18 - {14 - (15 - 4 / 2 * 2)}]',
-        answers: [
-        { text: '26', correct: false },
-        { text: '21', correct: true },
-        { text: '14', correct: false },
-        { text: '15', correct: false },
-        ]
-    }
-]*/
