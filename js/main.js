@@ -290,15 +290,8 @@ function startQuiz(){
     start.style.display = "none";
     renderQuestion(que);
     quiz.style.display = "block";
-    renderProgress();
     renderCounter();
     TIMER = setInterval(renderCounter,1000); 
-}
-
-function renderProgress(){
-    for(let qIndex = 0; qIndex <= 4; qIndex++){
-        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
-    }
 }
 
 function renderCounter(){
@@ -385,12 +378,19 @@ function scoreRender(){
     document.getElementById('nextlevel').style.display = 'block'
 }
 
+function bg_clr(){
+    for(i = 0; i <= 4; i++){
+        document.getElementById(i).style.backgroundColor = "rgba(var(--bg-color), 1)";
+    }
+}
+
 function reset(){
     document.getElementById('start').style.display = 'block'
     runningQuestion = 0;
     count = 0;
     score = 0;
     lastQuestion = 4;
+    document.getElementById(1).style.backgroundColor = "yellow";
 }
 
 function cont(){

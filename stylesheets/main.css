@@ -492,7 +492,6 @@ input#menu:checked ~ #menu-content{
                      rgba(var(--gradient-2), 1));
     color: white;
     padding: 2.8rem 10rem;
-    position: fixed;
     z-index: 100;
     top: 50%;
     outline: none;
@@ -565,7 +564,7 @@ input#menu:checked ~ #menu-content{
         align-items: center;
         top: 20%;
         justify-content: start;
-        padding: 10px;
+        padding: 0;
         padding-top: 70vh; 
         display: none;
     }
