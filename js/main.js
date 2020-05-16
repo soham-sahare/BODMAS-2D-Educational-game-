@@ -373,6 +373,7 @@ function scoreRender(){
             document.getElementById('replay').style.display = 'block'
         }
     }
+    
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
     quiz.style.display = 'none'
     document.getElementById('nextlevel').style.display = 'block'
